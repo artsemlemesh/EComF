@@ -12,6 +12,7 @@ import {
 import { AiFillEye, AiFillHeart } from "react-icons/ai";
 import ProductDetail from "../shop/productDetail";
 
+
 const MyHome = () => {
   const {
     addToCart,

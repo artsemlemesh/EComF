@@ -412,12 +412,14 @@
 
 .banners .container .right_box {
     width: 76%;
+    margin-left: 10px;
+
 }
 
 .banners .container .right_box .top {
     max-width: 100%;
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     margin-top: 10px;
 }
 
@@ -427,7 +429,6 @@
 }
 
 .banners .container .right_box .bottom img {
-    width: 100%;
     object-fit: cover;
 }
 

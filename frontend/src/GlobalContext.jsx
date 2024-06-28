@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import useLS from "./custom_hook.jsx/navbarDarkTheme";
 import { useAuth0 } from "@auth0/auth0-react";
+import axios from 'axios'
 import { ToastContainer, toast } from "react-toastify";
 export const GlobalContext = createContext(null);
 

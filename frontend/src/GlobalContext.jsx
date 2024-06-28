@@ -42,6 +42,7 @@ export default function GlobalState({ children }) {
         const response = await fetch(
           `${process.env.REACT_APP_BACKEND_URL}/products/?page=${count}`
         ); //also changed here
+        console.log(response, 'RESPONSEF')
         if (!response.ok) {
           throw new Error("Network error was not ok");
         }

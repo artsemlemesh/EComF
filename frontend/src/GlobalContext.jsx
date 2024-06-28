@@ -60,7 +60,6 @@ export default function GlobalState({ children }) {
         console.log(data.totalCount)
 
         setTotCount(data.totalCount)
-        console.log(totCount, 'totalcount')
         console.log(response, 'RESPONSEF')
 
       } catch (e) {
@@ -93,6 +92,7 @@ export default function GlobalState({ children }) {
 
   useEffect(() => {
     console.log(totCount, 'totalcount');
+    console.log(response, 'RESPONSE')
   }, [totCount]);
 
   //created bcz returned error- two obj have the same key
@@ -140,7 +140,6 @@ export default function GlobalState({ children }) {
       );
     }
   };
-  console.log(allProducts, 'allprod')
 
   function handleTheme() {
     setTheme(theme === "day" ? "dark" : "day");

@@ -38,7 +38,7 @@ export default function GlobalState({ children }) {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const url = `${process.env.REACT_APP_BACKEND_URL}/products/?page=${count}`;
+        const url = `https://back-mike-1855d352a13c.herokuapp.com/products/?page=${count}`;
         console.log("fetching url: ", url);
         const response = await axios.get(url, {
           headers: {

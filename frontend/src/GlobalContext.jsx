@@ -42,13 +42,11 @@ export default function GlobalState({ children }) {
         const response = await fetch(
           `${process.env.REACT_APP_BACKEND_URL}/products/?page=${count}`
         ); //also changed here
-        console.log(response, 'RESPONSEF')
         if (!response.ok) {
           throw new Error("Network error was not ok");
         }
         const data = await response.json();
         const newProd = data.results;
-        console.log(newProd, 'CHECK')
     
 
         setAllProducts((prevProd) =>
@@ -63,6 +61,8 @@ export default function GlobalState({ children }) {
 
         setTotCount(data.totalCount)
         console.log(totCount, 'totalcount')
+        console.log(response, 'RESPONSEF')
+
       } catch (e) {
         console.error("fetch error: ", e);
       }

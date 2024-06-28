@@ -47,6 +47,7 @@ export default function GlobalState({ children }) {
         }
         const data = await response.json();
         const newProd = data.results;
+        console.log(newProd, 'CHECK')
     
 
         setAllProducts((prevProd) =>

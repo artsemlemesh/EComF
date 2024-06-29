@@ -40,3 +40,8 @@
     "node": ">=14.0.0"
   }
 }
+
+
+// heroku config:set ALLOWED_HOSTS=https://back-mike-1855d352a13c.herokuapp.com -a back-mike
+// heroku config:set ALLOWED_HOSTS=https://front-mike-d8af1337fdbe.herokuapp.com -a front-mike
+// heroku config:set SECRET_KEY="django-insecure-^-)r-q8ttck8r$q2wexg5*0n(4q(7x3(khp*_tik@_$rgw1o^+"

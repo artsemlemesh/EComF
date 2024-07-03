@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
-import { toast } from 'react-toastify';
-import './PaymentForm.css'; 
+import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import { toast } from "react-toastify";
+import "./PaymentForm.css";
 
 const PaymentForm = () => {
   const stripe = useStripe();
@@ -10,9 +10,9 @@ const PaymentForm = () => {
   const location = useLocation();
   const { totalPrice } = location.state || { totalPrice: 0 };
 
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [address, setAddress] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [address, setAddress] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -24,7 +24,7 @@ const PaymentForm = () => {
     const cardElement = elements.getElement(CardElement);
 
     const { error, paymentMethod } = await stripe.createPaymentMethod({
-      type: 'card',
+      type: "card",
       card: cardElement,
       billing_details: {
         name,
@@ -36,11 +36,11 @@ const PaymentForm = () => {
     });
 
     if (error) {
-      console.log('[error]', error);
-      toast.error('Payment failed. Please try again.');
+      console.log("[error]", error);
+      toast.error("Payment failed. Please try again.");
     } else {
-      console.log('[PaymentMethod]', paymentMethod);
-      toast.success('Payment successful!');
+      console.log("[PaymentMethod]", paymentMethod);
+      toast.success("Payment successful!");
       // Here, I would send the paymentMethod.id and totalPrice to a server to process the payment
     }
   };
@@ -85,7 +85,7 @@ const PaymentForm = () => {
       <div className="form-group">
         <h3>Total: ${totalPrice}</h3>
       </div>
-      <button id='btn' type="submit" disabled={!stripe}>
+      <button id="btn" type="submit" disabled={!stripe}>
         Pay ${totalPrice}
       </button>
     </form>

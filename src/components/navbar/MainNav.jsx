@@ -7,7 +7,6 @@ import "./nav.css";
 import { useContext } from "react";
 import { GlobalContext } from "../../GlobalContext";
 const Nav = () => {
-
   const { handleTheme, theme } = useContext(GlobalContext);
 
   return (
@@ -15,10 +14,13 @@ const Nav = () => {
       <Header />
       <div className="mid_header" data-theme={theme}>
         <div className="logo">
-          <img src="logo.svg" alt="logo" style={{width: '70px', height: '50px'}} /> {/* paste logo */}
+          <img
+            src="logo.svg"
+            alt="logo"
+            style={{ width: "70px", height: "50px" }}
+          />{" "}
         </div>
         <SearchBox />
-        {/* <button onClick={handleTheme}>hey</button> */}
 
         <div className="switch">
           <input

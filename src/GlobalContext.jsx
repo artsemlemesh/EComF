@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import useLS from "./custom_hook.jsx/navbarDarkTheme";
 import { useAuth0 } from "@auth0/auth0-react";
-import {ToastContainer, toast} from 'react-toastify'
+import { toast } from "react-toastify";
 export const GlobalContext = createContext(null);
 
 export default function GlobalState({ children }) {
@@ -15,39 +15,32 @@ export default function GlobalState({ children }) {
   const [search, setSearch] = useState("");
   const [theme, setTheme] = useLS("theme", "day"); //for dark theme
 
-  //added extra
   const [newProduct, setNewProduct] = useState([]);
   const [featuredProduct, setFeaturedProduct] = useState([]);
   const [topProduct, setTopProduct] = useState([]);
   const [trendingProduct, setTrendingProduct] = useState([]);
   const [allProducts, setAllProducts] = useState([]);
-  //
 
   const [count, setCount] = useState(1);
   const [disableBtn, setDisableBtn] = useState(false);
 
-  const [totCount, setTotCount] = useState(0)
+  const [totCount, setTotCount] = useState(0);
 
-
-  const [searchParam, setSearchParam] = useState('')
-  const [filteredProd, setFilteredProd] = useState([])
-
+  const [searchParam, setSearchParam] = useState("");
 
   const { loginWithRedirect, logout, user, isAuthenticated } = useAuth0();
 
-  //also new
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const response = await fetch(
           `https://back-mike-1855d352a13c.herokuapp.com/products/?page=${count}`
-        ); //also changed here
+        );
         if (!response.ok) {
           throw new Error("Network error was not ok");
         }
         const data = await response.json();
         const newProd = data.results;
-    
 
         setAllProducts((prevProd) =>
           removeDuplicates([...prevProd, ...newProd])
@@ -56,11 +49,10 @@ export default function GlobalState({ children }) {
         setShop((prevData) => removeDuplicates([...prevData, ...newProd]));
 
         categorizeProducts(newProd);
-        // console.log('total', data.totalCount)
-        console.log(data.totalCount)
+        console.log(data.totalCount);
 
-        setTotCount(data.totalCount)
-        console.log(totCount, 'totalcount')
+        setTotCount(data.totalCount);
+        console.log(totCount, "totalcount");
       } catch (e) {
         console.error("fetch error: ", e);
       }
@@ -74,7 +66,6 @@ export default function GlobalState({ children }) {
     fetchProducts();
   }, [count]);
 
-
   //  since the number of products fetched might not always match the total number of products available in the database (due to pagination or other factors), comparing shop.length directly to totCount might not be the best approach.
   useEffect(() => {
     const percentageFetched = (shop.length / totCount) * 100;
@@ -83,14 +74,13 @@ export default function GlobalState({ children }) {
     }
   }, [shop, totCount]);
   // , percentageFetched calculates the percentage of products fetched compared to the total count. If this percentage exceeds a certain threshold (e.g., 90%), it disables the button.
-  
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
   useEffect(() => {
-    console.log(totCount, 'totalcount');
+    console.log(totCount, "totalcount");
   }, [totCount]);
 
   //created bcz returned error- two obj have the same key
@@ -138,7 +128,7 @@ export default function GlobalState({ children }) {
       );
     }
   };
-  console.log(allProducts, 'allprod')
+  console.log(allProducts, "allprod");
 
   function handleTheme() {
     setTheme(theme === "day" ? "dark" : "day");
@@ -174,58 +164,44 @@ export default function GlobalState({ children }) {
         return x.category === search;
       });
       setTrendingProduct(searchFilter);
-      console.log(searchFilter, 'filter')
+      console.log(searchFilter, "filter");
     }
   };
 
-
   const [showDropdown, setShowDropdown] = useState(false);
 
-//search new func
+  //search new func
   const handleChange = (e) => {
-    const query = e.target.value.toLowerCase()
-    setSearchParam(query)
-    if(query.length > 1){
-      
-      const filteredData = 
-      allProducts.filter((item) => item.category === query)
-      setTrendingProduct(filteredData)
-      console.log(filteredData, 'filteredData')
-      console.log(shop, 'shop')
+    const query = e.target.value.toLowerCase();
+    setSearchParam(query);
+    if (query.length > 1) {
+      const filteredData = allProducts.filter(
+        (item) => item.category === query
+      );
+      setTrendingProduct(filteredData);
+      console.log(filteredData, "filteredData");
+      console.log(shop, "shop");
 
-      setShowDropdown(true)
+      setShowDropdown(true);
     }
+  };
 
-  }
-
-  console.log(trendingProduct, 'TP')
+  console.log(trendingProduct, "TP");
   useEffect(() => {
-    console.log(shop, 'SHOP');
+    console.log(shop, "SHOP");
   }, [shop]);
-  
-  
 
-  // useEffect(()=>{
-
-
-    
-  // }, [filteredData])
-
-
-  const [showDetail, setShowDetail] = useState(false)
-  const [detail, setDetail] = useState({})
-
+  const [showDetail, setShowDetail] = useState(false);
+  const [detail, setDetail] = useState({});
 
   const showDetailPage = (product) => {
-      setDetail(product)
-      setShowDetail(true)
-
-  }
+    setDetail(product);
+    setShowDetail(true);
+  };
 
   const closeDetailPage = () => {
-      setShowDetail(false)
-  }
-
+    setShowDetail(false);
+  };
 
   const addToCart = (product) => {
     const exists = cart.find((x) => {
@@ -277,7 +253,7 @@ export default function GlobalState({ children }) {
         isAuthenticated,
         loginWithRedirect,
         logout,
-        user
+        user,
       }}
     >
       {children}

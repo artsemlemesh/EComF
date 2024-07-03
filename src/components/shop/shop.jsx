@@ -1,9 +1,5 @@
-{/* <div className="shop" data-theme={theme}> */}
-
-
-
-import { useContext, useState } from "react";
-import { AiFillEye, AiFillHeart, AiOutlineClose } from "react-icons/ai";
+import { useContext } from "react";
+import { AiFillEye, AiFillHeart } from "react-icons/ai";
 import "./shop.css";
 import { GlobalContext } from "../../GlobalContext";
 import ProductDetail from "./productDetail";
@@ -64,8 +60,12 @@ const Shop = () => {
                     <div className="img_box">
                       <img src={product.image} alt="" />
                       <div className="icon">
-                        <li><AiFillHeart /></li>
-                        <li><AiFillEye onClick={() => showDetailPage(product)} /></li>
+                        <li>
+                          <AiFillHeart />
+                        </li>
+                        <li>
+                          <AiFillEye onClick={() => showDetailPage(product)} />
+                        </li>
                       </div>
                     </div>
                     <div className="detail">
@@ -87,5 +87,3 @@ const Shop = () => {
 };
 
 export default Shop;
-
-

@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-:root{
+:root {
     --background-nav: #fff;
     --background: #fff;
     --text-primary: #000;
@@ -14,14 +14,13 @@
     --product-bg-color: #fff
 }
 
-[data-theme='dark']{
+[data-theme='dark'] {
     --background-nav: #352e2e;
     --background: #000;
     --text-primary: #fff;
     --button-bg: #fff;
     --button-text: #000;
-    --product-bg-color:rgb(75, 75, 67)
-
+    --product-bg-color: rgb(75, 75, 67)
 }
 
 .home {
@@ -62,7 +61,7 @@
 }
 
 .home .top-banner .content p {
-    color:var(--text-primary);
+    color: var(--text-primary);
     letter-spacing: 1px;
     margin-top: 10px;
     margin-bottom: 30px;
@@ -205,7 +204,7 @@
 
 .home .trending .container .left_box .products .product_container .product_box .info {
     padding: 10px 10px;
-    background-color:  var(--product-bg-color);
+    background-color: var(--product-bg-color);
 }
 
 .home .trending .container .left_box .products .product_container .product_box .info h3 {
@@ -529,8 +528,7 @@
     transition: 0.5s;
 }
 
-.product_type .container .box .product-cart .info  button:hover {
+.product_type .container .box .product-cart .info button:hover {
     background: #f6f6f6;
     color: #232323;
 }
-

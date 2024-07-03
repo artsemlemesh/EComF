@@ -1,5 +1,5 @@
 import { MdLocalShipping } from "react-icons/md";
-import './nav.css'
+import "./nav.css";
 
 const Header = () => (
   <div className="header">

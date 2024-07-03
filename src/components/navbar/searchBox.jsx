@@ -1,4 +1,3 @@
-import { AiOutlineSearch } from "react-icons/ai";
 import "./nav.css";
 import { useContext } from "react";
 import { GlobalContext } from "../../GlobalContext";
@@ -13,16 +12,7 @@ const SearchBox = () => {
         value={searchParam}
         placeholder="search"
         onChange={handleChange}
-        // showDropdown={showDropdown}
       />
-
-      {/* {showDropdown && trendingProduct.map((item) => (
-  <div>{item.name}</div>))} */}
-      {/* for dropdown but no need */}
-
-      {/* <button onClick={searchProduct}>
-            <AiOutlineSearch/>
-        </button> */}
     </div>
   );
 };

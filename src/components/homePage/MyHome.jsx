@@ -204,8 +204,3 @@ export default MyHome;
 
 
 
-// Unique Client Identifier (UCI): 1129393568
-
-// S305843726 //May 27, 2023
-// S305718845  //January 5, 2023
-// S305240834 //July 21, 2022
